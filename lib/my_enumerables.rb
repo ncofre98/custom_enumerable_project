@@ -7,6 +7,10 @@ module IndexLoopHelper
 end
 
 module Enumerable
+  def my_each_with_index
+    each_index_yielding { |i| yield(self[i], i) }
+    self
+  end
 end
 
 class Array
