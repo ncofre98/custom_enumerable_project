@@ -11,6 +11,12 @@ module Enumerable
     each_index_yielding { |i| yield(self[i], i) }
     self
   end
+
+  def my_select
+    filtered = []
+    each_index_yielding { |i| filtered << self[i] if yield(self[i]) }
+    filtered
+  end
 end
 
 class Array
