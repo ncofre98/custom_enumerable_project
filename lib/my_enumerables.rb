@@ -17,6 +17,11 @@ module Enumerable
     each_index_yielding { |i| filtered << self[i] if yield(self[i]) }
     filtered
   end
+
+  def my_all?
+    each_index_yielding { |i| return false if !yield(self[i]) }
+    true
+  end
 end
 
 class Array
