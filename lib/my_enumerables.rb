@@ -22,6 +22,11 @@ module Enumerable
     each_index_yielding { |i| return false if !yield(self[i]) }
     true
   end
+
+  def my_any?
+    each_index_yielding { |i| return true if yield(self[i]) }
+    false
+  end
 end
 
 class Array
