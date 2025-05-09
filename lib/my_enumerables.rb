@@ -27,6 +27,10 @@ module Enumerable
     each_index_yielding { |i| return true if yield(self[i]) }
     false
   end
+
+  def my_none?
+    self.size == 0 || !block_given? || !(my_any? { |i| yield(i) } )
+  end
 end
 
 class Array
