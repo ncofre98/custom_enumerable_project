@@ -31,6 +31,13 @@ module Enumerable
   def my_none?
     self.size == 0 || !block_given? || !(my_any? { |i| yield(i) } )
   end
+
+  def my_count
+    return self.size if self.size == 0 || !block_given?
+    counter = 0
+    each_index_yielding { |i| counter += 1 if yield(self[i]) }
+    counter
+  end
 end
 
 class Array
