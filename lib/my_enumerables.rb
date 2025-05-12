@@ -38,6 +38,15 @@ module Enumerable
     each_index_yielding { |i| counter += 1 if yield(self[i]) }
     counter
   end
+
+  def my_map
+    return to_enum(:my_map) unless block_given?
+    arr = [nil] * self.size
+    each_index_yielding do |i|
+      arr[i] = yield(self[i])
+    end
+    arr
+  end
 end
 
 class Array
