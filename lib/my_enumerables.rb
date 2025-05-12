@@ -47,6 +47,14 @@ module Enumerable
     end
     arr
   end
+
+  def my_inject(sum = 0)
+    return nil unless block_given?
+    each_index_yielding do |i|
+      sum = yield(sum, self[i])
+    end
+    sum
+  end
 end
 
 class Array
