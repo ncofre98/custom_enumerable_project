@@ -65,6 +65,3 @@ class Array
     self
   end
 end
-
-#[42, 69, 1024].each_with_index { |e, i| puts "Position: #{i}, Value: #{e}" }
-# expected: Position: 0, Value: 42 ... etc
